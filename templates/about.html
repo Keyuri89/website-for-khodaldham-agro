@@ -1,0 +1,373 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+    <!-- Start Main Top -->
+    <header class="main-header">
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+            <div class="container">
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                    <a class="navbar-brand" href="index.html"><img src="{{ url_for('static', filename='images/logo5.jpeg') }}" class="logo" alt="" height="100px"></a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                        <li class="nav-item active"><a class="nav-link" href="/about.html">About Us</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
+                            <ul class="dropdown-menu">
+								<li><a href="/shop.html">Sidebar Shop</a></li>
+                                <li><a href="/cart.html">Cart</a></li>
+                                <li><a href="/checkout.html">Checkout</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="/gallery.html">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/feedback.html">Feedback</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+
+                <!-- Start Atribute Navigation -->
+
+                <!-- End Atribute Navigation -->
+            </div>
+            <!-- Start Side Menu -->
+            <div class="side">
+                <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+                <li class="cart-box">
+                    <ul class="cart-list">
+                        <li>
+                            <a href="#" class="photo"><img src="{{ url_for('static', filename='images/img-pro-01.jpg') }}" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Delica omtantur </a></h6>
+                            <p>1x - <span class="price">$80.00</span></p>
+                        </li>
+                        <li>
+                            <a href="#" class="photo"><img src="{{ url_for('static', filename='images/img-pro-02.jpg') }}" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Omnes ocurreret</a></h6>
+                            <p>1x - <span class="price">$60.00</span></p>
+                        </li>
+                        <li>
+                            <a href="#" class="photo"><img src="{{ url_for('static', filename='images/img-pro-03.jpg') }}" class="cart-thumb" alt="" /></a>
+                            <h6><a href="#">Agam facilisis</a></h6>
+                            <p>1x - <span class="price">$40.00</span></p>
+                        </li>
+                        <li class="total">
+                            <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                            <span class="float-right"><strong>Total</strong>: $180.00</span>
+                        </li>
+                    </ul>
+                </li>
+            </div>
+            <!-- End Side Menu -->
+        </nav>
+        <!-- End Navigation -->
+    </header>
+    <!-- End Main Top -->
+
+    <!-- Start Top Search -->
+    <div class="top-search">
+        <div class="container">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                <input type="text" class="form-control" placeholder="Search">
+                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+            </div>
+        </div>
+    </div>
+    <!-- End Top Search -->
+
+    <!-- Start All Title Box -->
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>ABOUT US</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active">ABOUT US</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Title Box -->
+
+    <!-- Start About Page  -->
+    <div class="about-box-main">
+        <div class="container">
+            <div class="row">
+				<div class="col-lg-6">
+                    <div class="banner-frame"> <img class="img-fluid" src="{{ url_for('static', filename='images/med2.png') }}" alt="" />
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <h2 class="noo-sh-title-top">Agro <span>Chamicals</span></h2>
+                    <p>"Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+                        voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit,
+                        sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur?
+                        Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.</p>
+                    <p>100% organic and fresh vegetables you will get from here.A better alternative than fast foods.A bunch of fruits is an emotion.A fruit a day helps you work, rest, and play.A fruit basket is an emotion.A fruit slice can make you smile.A healthy meal for everyone.</p>
+					<a class="btn hvr-hover" href="#">Read More</a>
+                </div>
+            </div>
+            <div class="row my-5">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="service-block-inner">
+                        <h3>We are Trusted</h3>
+                        <p>"Where farm-fresh dreams come true"."Growing greatness from the ground up"."Harvesting happiness, one crop at a time"."Nurturing nature's bounty"."Cultivating connection between land and table"."Farm to fork, naturally"."Sowing seeds, reaping smiles" </p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="service-block-inner">
+                        <h3>We are Professional</h3>
+                        <p>"Where farm-fresh dreams come true"."Growing greatness from the ground up"."Harvesting happiness, one crop at a time"."Nurturing nature's bounty"."Cultivating connection between land and table"."Farm to fork, naturally"."Sowing seeds, reaping smiles" </p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-lg-4">
+                    <div class="service-block-inner">
+                        <h3>We are Expert</h3>
+                        <p>"Where farm-fresh dreams come true"."Growing greatness from the ground up"."Harvesting happiness, one crop at a time"."Nurturing nature's bounty"."Cultivating connection between land and table"."Farm to fork, naturally"."Sowing seeds, reaping smiles" </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row my-4">
+                <div class="col-12">
+                    <h2 class="noo-sh-title">Meet Our Team</h2>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="hover-team">
+                        <div class="our-team"> <img src="{{ url_for('static', filename='images/p3.jpg') }}" alt="" />
+                            <div class="team-content">
+                                <h3 class="title">Devangi Asodariya</h3> <span class="post">Web Developer</span> </div>
+                            <ul class="social">
+                                <li>
+                                    <a href="https://www.whatsapp.com" class="fab fa-whatsapp"></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.google.com" target="_blank" class="fab fa-google-plus"></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com" target="_blank" class="fab fa-youtube"></a>
+                                </li>
+                            </ul>
+                            <div class="icon"> <i class="fa fa-plus" aria-hidden="true"></i> </div>
+                        </div>
+
+                        <hr class="my-0"> </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="hover-team">
+                        <div class="our-team"> <img src="{{ url_for('static', filename='images/p1.jpg') }}" alt="" />
+                            <div class="team-content">
+                                <h3 class="title">Princy Gajera</h3> <span class="post">Web Developer</span> </div>
+                            <ul class="social">
+                                <li>
+                                    <a href="https://www.whatsapp.com" class="fab fa-whatsapp"></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.google.com" target="_blank" class="fab fa-google-plus"></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com" target="_blank" class="fab fa-youtube"></a>
+                                </li>
+                            </ul>
+                            <div class="icon"> <i class="fa fa-plus" aria-hidden="true"></i> </div>
+                        </div>
+
+                        <hr class="my-0"> </div>
+                </div>
+                <div class="col-sm-6 col-lg-3">
+                    <div class="hover-team">
+                        <div class="our-team"> <img src="{{ url_for('static', filename='images/p2.jpg') }}" alt="" />
+                            <div class="team-content">
+                                <h3 class="title">Keyuri Chovatiya</h3> <span class="post">Web Developer</span> </div>
+                            <ul class="social">
+                                <li>
+                                    <a href="https://www.whatsapp.com" class="fab fa-whatsapp"></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.google.com" target="_blank" class="fab fa-google-plus"></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.youtube.com" target="_blank" class="fab fa-youtube"></a>
+                                </li>
+                            </ul>
+                            <div class="icon"> <i class="fa fa-plus" aria-hidden="true"></i> </div>
+                        </div>
+
+                        <hr class="my-0"> </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- End About Page -->
+
+    <!-- Start Instagram Feed  -->
+    <div class="instagram-box">
+        <div class="main-instagram owl-carousel owl-theme">
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-01.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-02.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-03.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-04.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-05.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-06.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-07.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-08.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-09.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-05.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Instagram Feed  -->
+
+<!-- Start Footer  -->
+    <footer>
+        <div class="footer-main">
+            <div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-top-box">
+							<h3>Business Time</h3>
+							<ul class="list-time">
+								<li>Monday - Saturday: 08.00am to 07.00pm </li> <li>Sunday: 08.00am to 01.00pm <span>Closed</span></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-top-box">
+							<h3>About Khodaldham Agro</h3>
+                            <p>100% organic and fresh vegetables you will get from here.A better alternative than fast foods.A bunch of fruits is an emotion.A fruit a day helps you work, rest, and play.A fruit basket is an emotion.A fruit slice can make you smile.A healthy meal for everyone. </p>
+
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-link-contact">
+							<h4>Contact Us</h4>
+                            <ul>
+                                <li>
+                                    <p><i class="fas fa-map-marker-alt"></i>Address: Near old Marketing Yard, <br>Shop No.65,<br> Amreli-365601 </p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+91 94292 23243">+91 94292 23243</a></p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-envelope"></i>Email: <a href="khodaldhamagro22@gmail.com">khodaldhamagro22@gmail.com</a></p>
+                                </li>
+                            </ul>
+						</div>
+					</div>
+				</div>
+
+                </div>
+            </div>
+    </footer>
+    <!-- End Footer  -->
+
+    <!-- Start copyright  -->
+    <div class="footer-copyright">
+        <p class="footer-company">All Rights Reserved. &copy; 2025 <a href="#">Khodaldham Agro Shop</a> Design By :
+            <a href="https://html.design/">DPK</a></p>
+    </div>
+    <!-- End copyright  -->
+
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+    <!-- ALL JS FILES -->
+    <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{{ url_for('static', filename='js/jquery.superslides.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap-select.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/inewsticker.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootsnav.js.') }}"></script>
+    <script src="{{ url_for('static', filename='js/images-loded.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/isotope.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/baguetteBox.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/form-validator.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/contact-form-script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+</body>
+
+</html>
+{% endblock %}

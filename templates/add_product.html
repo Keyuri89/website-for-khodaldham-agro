@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Product</title>
+</head>
+<body>
+    <h2>Add New Product</h2>
+    <form method="POST" action="{{ url_for('add_product') }}" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+    <div>
+        {{ form.pname.label }} {{ form.pname }}
+    </div><br>
+    <div>
+        {{ form.price.label }} {{ form.price }}
+    </div><br>
+    <div>
+        {{ form.description.label }} {{ form.description }}
+    </div><br>
+    <div>
+        {{ form.stock.label }} {{ form.stock }}
+    </div><br>
+    <div>
+        {{ form.image.label }} {{ form.image }}
+    </div><br>
+    <div>
+        {{ form.submit }}
+    </div>
+</form>
+
+   <!-- <form method="POST">
+        {{ form.hidden_tag() }}
+        <label for="product_name" id="product_name">Product Name:</label>
+        {{ form.pname() }}<br>
+
+        <label for="price" id="price">Price:</label>
+        {{ form.price() }}<br>
+
+        <label for="product_description" id="product_description">Product Description:</label>
+        {{ form.description() }}<br>
+
+        <label for="stock" id="stock">Stock:</label>
+        {{ form.stock() }}<br>
+
+        <label for="image" id="image">Image URL:</label>
+        {{ form.image() }}<br>
+
+        <button type="submit">{{ form.submit() }}</button>
+    </form> -->
+</body>
+</html>

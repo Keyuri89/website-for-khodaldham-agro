@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Product</title>
+</head>
+<body>
+    <form method="POST" enctype="multipart/form-data">
+    {{ form.hidden_tag() }}
+
+    <div class="form-group">
+        <label for="pname" id="pname">Product Name</label>
+        {{ form.pname(class="form-control", value=form.pname.data) }}
+    </div>
+
+    <div class="form-group">
+        <label for="price" id="price">Price</label>
+        {{ form.price(class="form-control", value=form.price.data) }}
+    </div>
+
+    <div class="form-group">
+        <label for="description" id="description">Description</label>
+        {{ form.description(class="form-control", value=form.description.data) }}
+    </div>
+
+    <div class="form-group">
+        <label for="stock" id="stock">Stock</label>
+        {{ form.stock(class="form-control", value=form.stock.data) }}
+    </div>
+
+    <div class="form-group">
+        <label for="image" id="image">Product Image</label>
+        <input type="file" class="form-control" name="image" />
+
+        {% if product[5] %}
+            <p>Current Image: <img src="{{ url_for('static', filename=product[5]) }}" width="100" /></p>
+        {% else %}
+            <p>No image uploaded</p>
+
+        {% endif %}
+    </div>
+
+    <button type="submit" class="btn btn-primary">Update Product</button>
+</form>
+
+</body>
+</html>

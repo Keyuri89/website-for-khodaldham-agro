@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bill</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+            background: #f8f8f8;
+        }
+        .invoice-container {
+            max-width: 700px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .invoice-header {
+            text-align: center;
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .invoice-header h2 {
+            margin: 0;
+            color: #007bff;
+        }
+        .invoice-details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+        .table-container {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .table-container th, .table-container td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        .table-container th {
+            background: #007bff;
+            color: white;
+        }
+        .total-section {
+            text-align: right;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .print-button {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            background: #28a745;
+            color: white;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+        .print-button:hover {
+            background: #218838;
+        }
+    </style>
+</head>
+<body>
+{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    {% for category, message in messages %}
+      <div style="color: #28a745;" class="alert alert-{{ category }}">{{ message }}</div>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+    <form action="/bill.html" method="post">
+<div class="invoice-container">
+    <div class="invoice-header">
+        <h2>Bill</h2>
+        <p>Order Confirmation</p>
+    </div>
+
+    <div class="invoice-details">
+        <div>
+            <strong>Customer Details</strong><br>
+            Name: {{ username }}<br>
+            Email: {{ email }}<br>
+            Address: {{ address }}<br>
+            Contact: {{ contact }}<br>
+        </div>
+        <div>
+            <strong>Bill Date:</strong> {{ order_date }}<br>
+            <strong>User ID:</strong> {{ user_id }}
+        </div>
+    </div>
+
+    <table class="table-container">
+        <tr>
+            <th>Product Name</th>
+            <th>Qty</th>
+            <th>Price</th>
+            <th>Total</th>
+        </tr>
+        {% for item in cart_items %}
+        <tr>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+            <td>₹{{ item[2] }}</td>
+            <td>₹{{ item[3] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div class="total-section">
+        <p>Subtotal: ₹{{ subtotal }}</p>
+        <p>18% GST</p>
+        <h2>Total: ₹{{ total }}</h2>
+    </div>
+
+    <button class="print-button" onclick="window.print()">Print Bill</button>
+    <h3><a href="/index.html">Home Page</a></h3>
+</div>
+    </form>
+</body>
+</html>

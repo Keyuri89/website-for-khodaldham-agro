@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forgot Password</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(120deg, #f0f0f0, #f9f9f9);
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 380px;
+            margin: 100px auto;
+            padding: 40px;
+            background-color: #fff;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #333;
+            text-align: left;
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        /* Same style for all input fields */
+        input[type="email"],
+        input[type="password"] {
+            width: 100%;          /* Ensure the inputs span the full width */
+            padding: 15px;        /* Add padding for spacing inside the inputs */
+            margin: 10px 0 20px;  /* Add space between inputs */
+            border: 2px solid #ddd;  /* Add a light border around inputs */
+            border-radius: 5px;   /* Rounded corners for the inputs */
+            font-size: 16px;      /* Ensure the text is legible */
+            box-sizing: border-box;  /* Include padding and border in width calculation */
+            transition: border-color 0.3s ease;  /* Smooth transition on focus */
+        }
+
+        /* Focus style for inputs */
+        input[type="email"]:focus,
+        input[type="password"]:focus {
+            border-color: #007BFF;  /* Change border color on focus */
+            outline: none;           /* Remove default outline */
+        }
+
+        button {
+            width: 100%;            /* Make the button span full width */
+            padding: 15px;          /* Add padding for the button */
+            background-color: #007BFF;  /* Blue background for the button */
+            color: white;           /* White text color */
+            border: none;           /* Remove default border */
+            border-radius: 5px;     /* Rounded corners for the button */
+            font-size: 16px;        /* Font size for the button */
+            cursor: pointer;       /* Pointer cursor on hover */
+            transition: background-color 0.3s ease;  /* Smooth transition on hover */
+        }
+
+        /* Hover effect for the button */
+        button:hover {
+            background-color: #0056b3;  /* Darken button color on hover */
+        }
+
+        .back-link {
+            margin-top: 20px;  /* Add space above the "Back to Home" link */
+        }
+
+        .back-link a {
+            color: #007BFF;      /* Blue color for the link */
+            font-size: 14px;     /* Font size for the link */
+            text-decoration: none;  /* Remove underline from the link */
+        }
+
+        .back-link a:hover {
+            text-decoration: underline;  /* Underline on hover */
+        }
+
+        .error {
+            color: red;          /* Error message color */
+            font-size: 14px;     /* Font size for error messages */
+            margin-top: 10px;    /* Add space above the error message */
+        }
+
+        .success {
+            color: green;        /* Success message color */
+            font-size: 16px;     /* Font size for success messages */
+            margin-top: 10px;    /* Add space above the success message */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Forgot Password</h2>
+
+        <form method="POST">
+            {{ form.hidden_tag() }}
+
+            <label for="email">Email Address</label>
+            {{ form.email }}
+
+            <label for="old_password">Old Password</label>
+            {{ form.old_password }}
+
+            <label for="new_password">New Password</label>
+            {{ form.new_password }}
+
+            <label for="new_confirm_password">Confirm New Password</label>
+            {{ form.new_confirm_password }}
+
+            <button type="submit">Change Password</button>
+        </form>
+
+        <div class="back-link">
+            <p><a href="/">Back to Home</a></p>
+        </div>
+
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                <p class="success">{{ messages[0] }}</p>
+            {% endif %}
+        {% endwith %}
+    </div>
+
+</body>
+</html>

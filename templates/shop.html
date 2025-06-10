@@ -1,0 +1,446 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+    <!-- Start Main Top -->
+    <header class="main-header">
+        <!-- Start Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-default bootsnav">
+            <div class="container">
+                <!-- Start Header Navigation -->
+                <div class="navbar-header">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa fa-bars"></i>
+                </button>
+                    <a class="navbar-brand" href="index.html"><img src="{{ url_for('static', filename='images/logo5.jpeg') }}" class="logo" alt="" height="100px"></a>
+                </div>
+                <!-- End Header Navigation -->
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="navbar-menu">
+                    <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li class="nav-item"><a class="nav-link" href="/index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/about.html">About Us</a></li>
+                        <li class="dropdown active">
+                            <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
+                            <ul class="dropdown-menu">
+								<li><a href="/shop.html">Sidebar Shop</a></li>
+                                <li><a href="/cart.html">Cart</a></li>
+                                <li><a href="/checkout.html">Checkout</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="/gallery.html">Gallery</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/feedback.html">Feedback</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+
+                <!-- Start Atribute Navigation -->
+
+                <!-- End Atribute Navigation -->
+            </div>
+            <!-- Start Side Menu -->
+            <!-- End Side Menu -->
+        </nav>
+        <!-- End Navigation -->
+    </header>
+    <!-- End Main Top -->
+
+    <!-- Start Top Search -->
+    <div class="top-search">
+        <div class="container">
+            <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-search"></i></span>
+                <input type="text" class="form-control" placeholder="Search">
+                <span class="input-group-addon close-search"><i class="fa fa-times"></i></span>
+            </div>
+        </div>
+    </div>
+    <!-- End Top Search -->
+
+    <!-- Start All Title Box -->
+    <div class="all-title-box">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Shop</h2>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                        <li class="breadcrumb-item active">Shop</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End All Title Box -->
+
+    <!-- Start Shop Page  -->
+    <div class="shop-box-inner">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-9 col-lg-9 col-sm-12 col-xs-12 shop-content-right">
+                    <div class="right-product-box">
+                        <div class="product-item-filter row">
+                            <div class="col-14 col-sm-14 text-center text-sm-right">
+                                <ul class="nav nav-tabs ml-auto">
+                                    <li>
+                                        <a class="nav-link active" href="#grid-view" data-toggle="tab"> <i class="fa fa-th"></i> </a>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="product-categorie-box">
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade show active" id="grid-view">
+                                    <div class="row">
+                                        {% for product in products %}
+                                        <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                                            <div class="products-single fix">
+                                                <div class="box-img-hover">
+                                                    <!-- Image Section -->
+                                                    <img src="{{ url_for('static', filename=product[5]) }}" class="card-img-top" alt="{{ product[1] }}">
+
+                                                </div>
+                                                    <div class="why-text">
+                                                        <h4>{{ product[1] }}</h4>  <!-- Display product name -->
+                                                        <h5>Rs. {{ product[2] }}</h5>
+                                                        <h5>Stock {{ product[4] }}</h5><!-- Display product price -->
+                                                        <br>
+                                                    </div>
+                                                    <div class="why-text">
+                                                        {% if session['loggedin'] %}
+                                                            <form action="{{ url_for('add_to_cart', pid=product[0]) }}" method="POST">
+                                                                <input type="number" value="1" name="qty" min="1" required><br><br>
+                                                                <button type="submit" class="btn btn-primary">Add to Cart</button>
+                                                            </form>
+                                                        <form method="post" action="{{ url_for('add_to_cart', pid=product[0]) }}">
+                                                          <button type="submit" class="btn btn-success">Buy Now</button>
+                                                        </form>
+                                                        {% else %}
+                                                            <a href="{{ url_for('login1') }}" class="btn btn-secondary">Login to Buy</a>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                    {% endfor %}
+
+
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="list-view">
+                                    <div class="list-view-box">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                                                <div class="products-single fix">
+                                                    <div class="box-img-hover">
+
+                                                        <img src="{{ url_for('static', filename='images/gallery-img-07.jpg') }}" class="img-fluid" alt="Image">
+                                                        <div class="mask-icon">
+                                                            <ul>
+                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                                            </ul>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6 col-lg-8 col-xl-8">
+                                                <div class="why-text full-width">
+                                                    <h4>Mug No.20</h4>
+                                                    <h5> <del>Rs. 600</del> Rs.400</h5><br><br>
+
+                                                    <a class="btn hvr-hover" href="#">Add to Cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-view-box">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                                                <div class="products-single fix">
+                                                    <div class="box-img-hover">
+                                                        <div class="type-lb">
+                                                            <a class="sale" href="#">Buy Now</a>
+                                                        </div>
+                                                        <img src="{{ url_for('static', filename='images/img-pro-02.jpg') }}" class="img-fluid" alt="Image">
+                                                        <div class="mask-icon">
+                                                            <ul>
+                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                                            </ul>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6 col-lg-8 col-xl-8">
+                                                <div class="why-text full-width">
+                                                    <h4>Tomato seeds</h4>
+                                                    <h5> <del>Rs.200</del> Rs.150</h5><br><br>
+
+                                                    <a class="btn hvr-hover" href="#">Add to Cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="list-view-box">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
+                                                <div class="products-single fix">
+                                                    <div class="box-img-hover">
+                                                        <div class="type-lb">
+                                                            <a class="sale" href="#">Buy Now</a>
+                                                        </div>
+                                                        <img src="{{ url_for('static', filename='images/img-pro-03.jpg') }}" class="img-fluid" alt="Image">
+                                                        <div class="mask-icon">
+                                                            <ul>
+                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                                                <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                                            </ul>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-md-6 col-lg-8 col-xl-8">
+                                                <div class="why-text full-width">
+                                                    <h4>Grapes Seeds</h4>
+                                                    <h5> <del>Rs. 330</del> Rs.245</h5><br><br>
+
+                                                    <a class="btn hvr-hover" href="#">Add to Cart</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+				<!-- <div class="col-xl-3 col-lg-3 col-sm-12 col-xs-12 sidebar-shop-left">
+                    <div class="product-categori">
+                        <div class="search-product">
+                            <form action="#">
+                                <input class="form-control" placeholder="Search here..." type="text">
+                                <button type="submit"> <i class="fa fa-search"></i> </button>
+                            </form>
+                        </div>
+                        <div class="filter-sidebar-left">
+                            <div class="title-left">
+                                <h3>Categories</h3>
+                            </div>
+                            <div class="list-group list-group-collapse list-group-sm list-group-tree" id="list-group-men" data-children=".sub-men">
+                                <div class="list-group-collapse sub-men">
+                                    <a class="list-group-item list-group-item-action" href="#sub-men1" data-toggle="collapse" aria-expanded="true" aria-controls="sub-men1">Fruits & Drinks <small class="text-muted">(100)</small>
+								</a>
+                                    <div class="collapse show" id="sub-men1" data-parent="#list-group-men">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action active">Fruits 1 <small class="text-muted">(50)</small></a>
+                                            <a href="#" class="list-group-item list-group-item-action">Fruits 2 <small class="text-muted">(10)</small></a>
+                                            <a href="#" class="list-group-item list-group-item-action">Fruits 3 <small class="text-muted">(10)</small></a>
+                                            <a href="#" class="list-group-item list-group-item-action">Fruits 4 <small class="text-muted">(10)</small></a>
+                                            <a href="#" class="list-group-item list-group-item-action">Fruits 5 <small class="text-muted">(20)</small></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-group-collapse sub-men">
+                                    <a class="list-group-item list-group-item-action" href="#sub-men2" data-toggle="collapse" aria-expanded="false" aria-controls="sub-men2">Vegetables
+								<small class="text-muted">(50)</small>
+								</a>
+                                    <div class="collapse" id="sub-men2" data-parent="#list-group-men">
+                                        <div class="list-group">
+                                            <a href="#" class="list-group-item list-group-item-action">Vegetables 1 <small class="text-muted">(10)</small></a>
+                                            <a href="#" class="list-group-item list-group-item-action">Vegetables 2 <small class="text-muted">(20)</small></a>
+                                            <a href="#" class="list-group-item list-group-item-action">Vegetables 3 <small class="text-muted">(20)</small></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="#" class="list-group-item list-group-item-action"> Grocery  <small class="text-muted">(150) </small></a>
+                                <a href="#" class="list-group-item list-group-item-action"> Grocery <small class="text-muted">(11)</small></a>
+                                <a href="#" class="list-group-item list-group-item-action"> Grocery <small class="text-muted">(22)</small></a>
+                            </div>
+                        </div>
+                        <div class="filter-price-left">
+                            <div class="title-left">
+                                <h3>Price</h3>
+                            </div>
+                            <div class="price-box-slider">
+                                <div id="slider-range"></div>
+                                <p>
+                                    <input type="text" id="amount" readonly style="border:0; color:#fbb714; font-weight:bold;">
+                                    <button class="btn hvr-hover" type="submit">Filter</button>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+    </div>
+    <!-- End Shop Page -->
+
+    <!-- Start Instagram Feed  -->
+    <div class="instagram-box">
+        <div class="main-instagram owl-carousel owl-theme">
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-01.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-02.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-03.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-04.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-05.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-06.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-07.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-08.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-09.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="item">
+                <div class="ins-inner-box">
+                    <img src="{{ url_for('static', filename='images/instagram-img-05.jpg') }}" alt="" />
+                    <div class="hov-in">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Instagram Feed  -->
+
+
+    <!-- Start Footer  -->
+    <footer>
+        <div class="footer-main">
+            <div class="container">
+				<div class="row">
+					<div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-top-box">
+							<h3>Business Time</h3>
+							<ul class="list-time">
+								<li>Monday - Saturday: 08.00am to 07.00pm </li> <li>Sunday: 08.00am to 01.00pm <span>Closed</span></li>
+							</ul>
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-top-box">
+							<h3>About Khodaldham Agro</h3>
+                            <p>100% organic and fresh vegetables you will get from here.A better alternative than fast foods.A bunch of fruits is an emotion.A fruit a day helps you work, rest, and play.A fruit basket is an emotion.A fruit slice can make you smile.A healthy meal for everyone. </p>
+
+						</div>
+					</div>
+					<div class="col-lg-4 col-md-12 col-sm-12">
+						<div class="footer-link-contact">
+							<h4>Contact Us</h4>
+                            <ul>
+                                <li>
+                                    <p><i class="fas fa-map-marker-alt"></i>Address: Near old Marketing Yard, <br>Shop No.65,<br> Amreli-365601 </p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-phone-square"></i>Phone: <a href="tel:+91 94292 23243">+91 94292 23243</a></p>
+                                </li>
+                                <li>
+                                    <p><i class="fas fa-envelope"></i>Email: <a href="khodaldhamagro22@gmail.com">khodaldhamagro22@gmail.com</a></p>
+                                </li>
+                            </ul>
+						</div>
+					</div>
+				</div>
+
+                </div>
+            </div>
+    </footer>
+    <!-- End Footer  -->
+
+    <!-- Start copyright  -->
+    <div class="footer-copyright">
+        <p class="footer-company">All Rights Reserved. &copy; 2025 <a href="#">Khodaldham Agro Shop</a> Design By :
+            <a href="https://html.design/">DPK</a></p>
+    </div>
+    <!-- End copyright  -->
+
+    <a href="#" id="back-to-top" title="Back to top" style="display: none;">&uarr;</a>
+
+    <!-- ALL JS FILES -->
+    <script src="{{ url_for('static', filename='js/jquery-3.2.1.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/popper.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+    <!-- ALL PLUGINS -->
+    <script src="{{ url_for('static', filename='js/jquery.superslides.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap-select.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/inewsticker.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootsnav.js.') }}"></script>
+    <script src="{{ url_for('static', filename='js/images-loded.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/isotope.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/owl.carousel.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/baguetteBox.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/form-validator.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/contact-form-script.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+</body>
+
+</html>
+{% endblock %}
